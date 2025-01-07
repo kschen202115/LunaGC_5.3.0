@@ -45,7 +45,7 @@ jobs:
         run: |
           if [ "${{ github.event.inputs.build_type }}" == "release" ]; then
             chmod +x gradlew
-            ./gradlew build
+            ./gradlew jar
           else
             ./gradlew buildDebug
           fi
@@ -54,4 +54,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: built-artifacts
-          path: build/libs/*.jar
+          path: ./*.jar
