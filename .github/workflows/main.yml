@@ -44,6 +44,7 @@ jobs:
       - name: 构建项目
         run: |
           if [ "${{ github.event.inputs.build_type }}" == "release" ]; then
+            chmod +x gradlew
             ./gradlew build
           else
             ./gradlew buildDebug
