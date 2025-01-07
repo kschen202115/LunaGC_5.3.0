@@ -43,13 +43,16 @@ jobs:
 
       - name: 构建项目
         run: |
+          
           if [ "${{ github.event.inputs.build_type }}" == "release" ]; then
             chmod +x gradlew
+
+            ./gradlew generateHandbook
             ./gradlew jar
           else
             ./gradlew buildDebug
           fi
-          ./gradlew generateHandbook
+
 
       - name: 保存构建工件
         uses: actions/upload-artifact@v3
