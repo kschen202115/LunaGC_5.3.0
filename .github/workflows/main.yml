@@ -49,6 +49,7 @@ jobs:
           else
             ./gradlew buildDebug
           fi
+          ./gradlew generateHandbook
 
       - name: 保存构建工件
         uses: actions/upload-artifact@v3
